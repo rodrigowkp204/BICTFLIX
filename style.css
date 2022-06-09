@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2? family= Barlow & display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box; 
+}
+
+body{
+    font-family: 'Barlow', sans-serif;
+    background-image: url(https://cdn.allwallpaper.in/wallpapers/1920x1080/4722/pi-mathematics-numbers-typography-1920x1080-wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: center center; */
+}
+
+form{
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    box-shadow: 0 0px 5px rgba(0,0,0,0.3);
+    padding: 30px 4%;
+    background-color: rgba(0,0,0,.75);
+}
+
+img.logo1{
+    color: #e50914;
+    width: 96%;
+    height: 17%;
+    margin-left: 4px;
+}
+label.lab1{
+    position: absolute;
+    top: 33px;
+    left: 5px;
+    color: rgba(100,100,100);
+}
+.div-inputs .inputs:focus ~ .lab1,
+.div-inputs .inputs:valid ~ .lab1{
+    transform: translateY(-28px);
+    font-size: 12px;
+transition: .5s;
+    color: #fff;
+}
+label.lab2{
+    position: absolute;
+    top: 33px;
+    left: 5px;
+    color: rgba(100,100,100);
+}
+.div-inputs .inputs:focus ~ .lab2,
+.div-inputs .inputs:valid ~ .lab2{
+    transform: translateY(-28px);
+    transition: .5s;
+    font-size: 12px;
+    color: #fff;
+}
+label.lab3{
+    position: absolute;
+    top: 33px;
+    left: 5px;
+    color: rgba(100,100,100);
+}
+.div-inputs .inputs:focus ~ .lab3,
+.div-inputs .inputs:valid ~ .lab3{
+    transform: translateY(-28px);
+    transition: .5s;
+    font-size: 12px;
+    color: #fff;
+}
+label.lab4{
+    position: absolute;
+    top: 33px;
+    left: 5px;
+    color: rgba(100,100,100);
+}
+.div-inputs .inputs:focus ~ .lab4,
+.div-inputs .inputs:valid ~ .lab4{
+    transform: translateY(-28px);
+    transition: .5s;
+    font-size: 12px;
+    color: #fff;
+}
+.div-inputs .inputs:focus,
+.div-inputs .inputs:valid{
+    border-bottom: 2px solid #e50914;
+}
+.div-inputs{
+    position: relative;
+    margin: 30px 0;
+}
+.inputs{
+    width: 100%;
+    padding: 5px;
+    height: 50px;
+    border: 0;
+    border-bottom: 2px solid rgba(200,200,200);
+    outline: 0;
+    background-color: #333;
+    border-radius: 4px;
+}
+.div-inputs input:focus{
+    color: #fff;
+}
+
+.btn-cadastrar{
+    background: #e50914;
+    color: #ffff;
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 0 10px 0;
+    cursor: pointer;
+}
+.btn-cadastrar:hover{
+    transition: .5s;
+    background-color: #a50b13;
+
+}
