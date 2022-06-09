@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2? family= Barlow & display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700&family=Noto+Sans:wght@400;700&family=Poppins:wght@100&family=Ranchers&family=Redressed&family=Roboto&display=swap');
 
 * {
    margin: 0;
@@ -6,23 +7,60 @@
    box-sizing: border-box; 
 }
 
+/*Fundo da página*/
+
+html {
+
+    width: 100vw;
+    height: 100vw;
+    
+}
+
+
 body{
+    margin: 0;
     font-family: 'Barlow', sans-serif;
-    background-image: url(https://cdn.allwallpaper.in/wallpapers/1920x1080/4722/pi-mathematics-numbers-typography-1920x1080-wallpaper.jpg);
+    background: linear-gradient(rgba(17,17,17,0.8), rgba(20,20,20,1)), url(https://img.freepik.com/vetores-gratis/formula-matematica-calculo-matematico-no-quadro-negro-da-escola-algebra-e-geometria-ciencia-giz-padrao-conceito-educacao-vetorial-analise-cientifica-calculo-de-numeros-conhecimento-complexo_102902-3216.jpg?w=2000);
+    background-size: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    
+
     /* background-position: center center; */
 }
 
+.div-main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    
+
+h1{
+
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 3px;
+    color: #e50914;
+    margin-left: 40px;
+    margin-top: 19px;
+    font-size: 70px;
+    cursor: pointer;
+  
+}
+
+
 form{
-    width: 400px;
+    margin-top: 130px;
+    min-width: 500px;
+    height: 800px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-
     box-shadow: 0 0px 5px rgba(0,0,0,0.3);
-    padding: 30px 4%;
+    padding: 80px;
     background-color: rgba(0,0,0,.75);
 }
 
@@ -32,10 +70,18 @@ img.logo1{
     height: 17%;
     margin-left: 4px;
 }
+
+h2{
+
+    margin-bottom: 30px;
+    color: white;
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 label.lab1{
     position: absolute;
     top: 33px;
-    left: 5px;
+    left: 20px;
     color: rgba(100,100,100);
 }
 .div-inputs .inputs:focus ~ .lab1,
@@ -48,7 +94,7 @@ transition: .5s;
 label.lab2{
     position: absolute;
     top: 33px;
-    left: 5px;
+    left: 20px;
     color: rgba(100,100,100);
 }
 .div-inputs .inputs:focus ~ .lab2,
@@ -61,7 +107,7 @@ label.lab2{
 label.lab3{
     position: absolute;
     top: 33px;
-    left: 5px;
+    left: 20px;
     color: rgba(100,100,100);
 }
 .div-inputs .inputs:focus ~ .lab3,
@@ -74,7 +120,7 @@ label.lab3{
 label.lab4{
     position: absolute;
     top: 33px;
-    left: 5px;
+    left: 20px;
     color: rgba(100,100,100);
 }
 .div-inputs .inputs:focus ~ .lab4,
@@ -90,12 +136,13 @@ label.lab4{
 }
 .div-inputs{
     position: relative;
-    margin: 30px 0;
+    margin: 5px 0;
 }
 .inputs{
+    
     width: 100%;
-    padding: 5px;
-    height: 50px;
+    padding: 16px 20px 0;
+    height: 60px;
     border: 0;
     border-bottom: 2px solid rgba(200,200,200);
     outline: 0;
@@ -116,9 +163,16 @@ label.lab4{
     font-size: 20px;
     padding: 10px 0 10px 0;
     cursor: pointer;
+    border: none;
 }
 .btn-cadastrar:hover{
     transition: .5s;
     background-color: #a50b13;
 
+}
+
+p{
+
+    color: white;
+    margin-top: 20px;
 }
