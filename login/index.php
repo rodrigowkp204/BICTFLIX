@@ -5,9 +5,11 @@ include('conexao2.php');
 if(isset($_POST['email']) || isset($_POST['senha'])){
 
     if(strlen($_POST['email']) == 0) {
-        echo "Preencha seu e-mail";
+        header("Location: index.php?error=Preencha seu email");
+        exit();
     } else if(strlen($_POST['senha']) == 0){
-        echo "Preencha sua senha";
+        header("Location: index.php?error=Preencha sua senha");
+        exit();
     } else {
 
         $email = $mysqli->real_escape_string($_POST['email']);
@@ -29,11 +31,13 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
 
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
             $_SESSION['nome'] = $usuario['nome'];
+            $_SESSION['tipo_usuario'] = $usuario['tipo_usuario'];
 
             header("Location: painel.php");
 
         } else {
-            echo "Falha ao logar! Email ou senha incorretos";
+            header("Location: index.php?error=E-mail ou Senha incorreta.");
+            
         }
 
     }
@@ -49,8 +53,9 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bictflix</title>
-    <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../img1/b_reto.png" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/d7f94f9242.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
@@ -62,6 +67,14 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
         </div>
         <form action="" method="POST">
             <h2>Entrar</h2>
+            <?php if(isset($_GET['error'])){ ?>
+                <p class="error"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?php echo $_GET['error']; ?></p>
+            <?php } ?>
+
+            <?php if(isset($_GET['login'])){ ?>
+                <p class="login"><?php echo $_GET['login']; ?></p>
+            <?php } ?>
+
             <div class="div-inputs-log1">
                 <input id="email-log" type="text" name="email" class="inputs">
                 <label class="lab_log1">E-mail</label>

@@ -1,9 +1,3 @@
-<?php
-
-    include('protect.php');
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BICTFLIX</title>
     <script src="https://kit.fontawesome.com/d7f94f9242.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="painel.css">
     <link rel="shortcut icon" href="B_bictflix (reto).png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="painel.css">
     </head>
     <style type="text/css">
         *{
@@ -39,7 +33,7 @@ body{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background: url(../img1/fundo2.png);
+    background: url(fundo2.png);
     background-size: cover;
 }
 /* .banner .content{
@@ -135,7 +129,7 @@ header{
     transition: 0.5s;
 }
 header.sticky{
-    background: #090909;
+    background-image: linear-gradient(to top, transparent, #090909);
     padding: 10px 100px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
@@ -158,24 +152,15 @@ header.sticky .logo{
 header .navegation{
     position: relative;
     display: flex;
-    align-items: center;
 }
 header .navegation li{
     list-style: none;
-    margin-left: 30px;   
-    margin-right: 30px; 
+    margin-left: 30px;    
 }
 header .navegation li a{
     text-decoration: none;
     color: #fff;
     font-weight: 300;
-}
-header ul{
-    padding-left: 0;
-}
-header .navegation li a:hover{
-    color: #ff0157;
-    border-bottom: 1px solid #ff0157;
 }
 header.sticky .navegation li a{
     color: #fff;
@@ -188,8 +173,6 @@ header.sticky .navegation li a:hover{
     position: relative;
     width: 300px;
     height: 40px;
-    margin-right: 25px;
-    margin-left: 25px;
 }
 .search input {
     position: absolute;
@@ -220,111 +203,25 @@ header.sticky .navegation li a:hover{
 header.sticky .search input{
     color: #fff;
 }
-.user ul{
-    display: inline-flex;
-    list-style-type: none;
-    padding: 0;
-    color: #fff;
-}
-.user ul li {
-    display: inline-block;
-}
-.user ul li a{
-    display: inline-block;
-    text-decoration: none;
-    padding: 10px 10px 2px;
-}
-.user ul:hover{
-    cursor: pointer;
-}
-.user ul ul{
-    display: none;
-    right: 1;
-    position: absolute;
-    background-image: linear-gradient(0deg, #090909,transparent);
-    padding: 0 0  10px 0;
-    font-size: 15px;
-    text-align: left;
-}
-.user ul li:hover ul{
-    display: block;
-    cursor: pointer;
-}
-.user ul ul{
-    width: 110px;
-}
-.user ul ul li a{
-    display: block;
-    color: #fff;
-}
-.user ul li a:hover{
-    color: #ff0157;
-    transform: scale(1.1);
-}
-
-header.sticky .user li a{
-    color: #fff;
-}
-.per ul ul{
-    display: none;
-    right: 1;
-    position: absolute;
-    background-image: linear-gradient(0deg, #090909,transparent);
-    padding: 0 0  10px 0;
-    font-size: 15px;
-    text-align: left;
-}
-.per ul li:hover ul{
-    display: block;
-}
-.per ul ul{
-    width: 145px;
-}
-.per ul ul li a{
-    display: block;
-    margin-bottom: 31px;
-    margin-top: 31px;
-}
 
     </style>
 
 <body>
     <header>
         <a href="" class="logo"><img src="logo_bictflix.png" alt=""></a>
-        <div class="per">
-            <ul class="navegation">
-                <li><a href="#banner">Inicio</a></li>
-                <li><a href="">Períodos</a>
-                    <ul>
-                        <li><a href="#first">1º Período</a></li>
-                        <li><a href="#second">2º Período</a></li>
-                        <li><a href="#third">3º Período</a></li>
-                        <li><a href="#fourth">4º Período</a></li>
-                        <li><a href="#fifth">5º Período</a></li>
-                        <li><a href="#six">6º Período</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </div>
+        <!-- <a href="" class="logo">Food<span>.</span></a> -->
+        <ul class="navegation">
+            <li><a href="#banner">Inicio</a></li>
+            <li><a href="#first">1º Período</a></li>
+            <li><a href="#second">2º Período</a></li>
+            <li><a href="#third">3º Período</a></li>
+            <li><a href="#fourth">4º Período</a></li>
+            <li><a href="#fifth">5º Período</a></li>
+        </ul>
         <div class="search">
             <input type="text" placeholder="Search">
             <i class="fas fa-search"></i>
-        </div>
-        <div class="user">
-            <ul>
-                <li><a><?php echo $_SESSION['nome']?></a></li>
-                <li><a><i class="fa fa-sort-desc" aria-hidden="true"></i></a>
-                    <ul>
-                        <?php if($_SESSION['tipo_usuario'] == '1') { ?> 
-                        <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i> Criar Disciplina</a></li>
-                        <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i> Criar Tema</a></li>
-                        <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Vídeo</a></li>
-                        <?php } ?>
-                        <li><a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
-                    </ul>
-                </li>
-            </ul>
+                
         </div>
     </header>
     <section class="banner" id="banner">
@@ -338,6 +235,7 @@ header.sticky .user li a{
             </h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam repellendus beatae quod modi<br>
                 voluptates veritatis a provident quisquam! Corrupti reprehenderit iure animi magnam quae error enim.</p>
+            <!-- <a href="#" class="btn">Our Menu</a> -->
             <div class="buttons">
                 <a><i class="fa fa-play" aria-hidden="true"></i> Play</a>
                 <a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Watch Now</a>
