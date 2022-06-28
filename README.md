@@ -51,7 +51,7 @@ Oprojeto foi construído pelos seguintes programas
 
 * José Rodrigo da Silva Batista - *FrontEnd e Documentação* - [Perfil](https://github.com/rodrigowkp204)
 * Meyson Silva de Souza - *FrontEnd e Documentação* - [Perfil] ()
-* Jeanderson da Silva Campos - *BackEnd e Documentação* - [Perfil]https://github.com/jeandsc)
+* Jeanderson da Silva Campos - *BackEnd e Documentação* - [Perfil](https://github.com/jeandsc)
 * Lucas Amorim da Silva - *BackEnd e Documentação* - [Perfil](https://github.com/linkParaPerfil)
 
 
