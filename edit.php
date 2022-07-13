@@ -1,8 +1,36 @@
 <?php
 
-include('../protect.php');
+    if(!empty($_GET['id']))
+    {
 
+    include_once("conexao.php");
+
+    $id = $_GET['id'];
+
+    $sqlSelect = "SELECT * FROM usuario WHERE id_usuario = $id";
+
+    $result = $conexao->query($sqlSelect);
+
+    if($result->num_rows > 0){
+        while ($user_data = mysqli_fetch_assoc($result)) {
+
+            $nome=$user_data['nome'];
+            $email=$user_data['email'];
+            $senha=$user_data['senha'];
+            $tipo=$user_data['tipo_usuario'];
+        }
+        //print_r($nome);
+    } else{
+        header('Location: login/painel.php');
+    }
+    mysqli_close($conexao);
+    }
 ?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,7 +40,7 @@ include('../protect.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="../../img1/b_reto.png"/>
+    <link rel="shortcut icon" href="../img1/b_reto.png"/>
     <style type="text/css">
         @import url('https://fonts.googleapis.com/css2? family= Barlow & display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700&family=Noto+Sans:wght@400;700&family=Poppins:wght@100&family=Ranchers&family=Redressed&family=Roboto&display=swap');
@@ -184,7 +212,7 @@ include('../protect.php');
             color: #fff;
         }
 
-        .btn-cadastrar{
+        #update{
             background: #e50914;
             color: #ffff;
             width: 100%;
@@ -197,7 +225,7 @@ include('../protect.php');
             border: none;
         }
 
-        .btn-cadastrar:hover{
+        #update:hover{
             transition: .5s;
             background-color: #a50b13;
         }
@@ -230,14 +258,14 @@ include('../protect.php');
 
         <div class="div-form">
     
-            <form method="POST" action="../../cadastro.php">
+            <form method="POST" action="../../saveEdit.php">
                 <h2>Cadastro</h2>
                 
             
                 <div class="div-inputs">
                    
                     <br />
-                    <input id="name" type="text" name="nome" class="inputs" required>
+                    <input id="name" type="text" name="nome" class="inputs" value="<?php echo $nome ?>" required>
                     <label for="Nome" class="lab1">Nome</label>
                     <br />
                 </div>
@@ -245,27 +273,27 @@ include('../protect.php');
                 <div class="div-inputs">
                     
                     <br />
-                    <input id="email" type="email" name="email" class="inputs" required>
+                    <input id="email" type="email" name="email" class="inputs" value="<?php echo $email ?>"  required>
                     <label for="" class="lab2">E-mail</label>
                     <br />
                 </div>
                 <div class="div-inputs">
                     <br />
-                    <input id="user" type="text" name="tipo_usuario" class="inputs" required>
+                    <input id="user" type="text" name="tipo_usuario" class="inputs" value="<?php echo $tipo ?>" required>
                     <label for="Tipo" class="lab3">Tipo do Usuário</label>
                     <br />
                 </div>
 
                 <div class="div-inputs">
                     <br />
-                    <input id="password" type="password" name="senha" class="inputs" required>
+                    <input id="password" type="password" name="senha" class="inputs" value="<?php echo $senha ?>" required>
                     <label for="" class="lab4">Senha</label>
                     <br /><br />
                 </div>
 
-                    <button class="btn-cadastrar">Cadastrar</button>
-
-                    <!--<p>Já tem uma conta? <a href="../login/index.php">Faça seu login</a></p>-->
+                <input type="hidden" name="id" value="<?php echo $id ?>">
+                <input type="submit" name="update" id="update">
+                    <!--<button class="btn-cadastrar">Cadastrar</button>-->
             </form>
         </div>
     </div>

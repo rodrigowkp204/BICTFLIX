@@ -88,7 +88,7 @@ label.lab1{
 .div-inputs .inputs:valid ~ .lab1{
     transform: translateY(-28px);
     font-size: 12px;
-transition: .5s;
+    transition: .5s;
     color: #fff;
 }
 label.lab2{
@@ -132,6 +132,7 @@ label.lab4{
 }
 .div-inputs .inputs:focus,
 .div-inputs .inputs:valid{
+    color: #fff;
     border-bottom: 2px solid #e50914;
 }
 .div-inputs{

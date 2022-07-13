@@ -1,8 +1,12 @@
 <?php
 
-include('../protect.php');
+include("../../protect.php");
+include("../../../conexao.php");
+
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,7 +16,7 @@ include('../protect.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="../../img1/b_reto.png"/>
+    <link rel="shortcut icon" href="../../../img1/b_reto.png"/>
     <style type="text/css">
         @import url('https://fonts.googleapis.com/css2? family= Barlow & display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700&family=Noto+Sans:wght@400;700&family=Poppins:wght@100&family=Ranchers&family=Redressed&family=Roboto&display=swap');
@@ -26,9 +30,12 @@ include('../protect.php');
         /*Fundo da página*/
 
         html {
+
             width: 100vw;
             height: 100vw;
+    
         }
+
 
         body{
             margin: 0;
@@ -38,6 +45,7 @@ include('../protect.php');
             overflow-x: hidden;
             background-repeat: no-repeat;
             background-size: cover;
+         /* background-position: center center; */
         }
 
         .div-main{
@@ -46,8 +54,8 @@ include('../protect.php');
             justify-content: center;
             align-items: center;
         }
-
-        h1{
+   
+        h1 a{
             font-family: 'Bebas Neue', cursive;
             letter-spacing: 3px;
             color: #e50914;
@@ -55,6 +63,11 @@ include('../protect.php');
             margin-top: 19px;
             font-size: 70px;
             cursor: pointer;
+        }
+
+        h1 a:hover{
+            letter-spacing: 4px;
+            color: #e50914;
         }
 
         form{
@@ -83,85 +96,25 @@ include('../protect.php');
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        h1 a{
-            font-family: 'Bebas Neue', cursive;
-            letter-spacing: 3px;
-            color: #e50914;
-            margin-left: 40px;
-            margin-top: 19px;
-            font-size: 70px;
-            cursor: pointer;
-        }
-
-        h1 a:hover{
-            letter-spacing: 4px;
-            color: #e50914;
-        }
-
         label.lab1{
             position: absolute;
-            top: 33px;
+            top: 38px;
             left: 20px;
             color: rgba(100,100,100);
         }
 
         .div-inputs .inputs:focus ~ .lab1,
         .div-inputs .inputs:valid ~ .lab1{
-            transform: translateY(-10px);
-            font-size: 15px;
+            transform: translateY(-17px);
+            font-size: 14px;
             transition: .5s;
-            color: rgba(100,100,100);
-        }
-
-        label.lab2{
-            position: absolute;
-            top: 33px;
-            left: 20px;
-            color: rgba(100,100,100);
-        }
-
-        .div-inputs .inputs:focus ~ .lab2,
-        .div-inputs .inputs:valid ~ .lab2{
-            transform: translateY(-10px);
-            transition: .5s;
-            font-size: 15px;
-            color: rgba(100,100,100);
-        }
-
-        label.lab3{
-            position: absolute;
-            top: 33px;
-            left: 20px;
-            color: rgba(100,100,100);
-        }
-
-        .div-inputs .inputs:focus ~ .lab3,
-        .div-inputs .inputs:valid ~ .lab3{
-            transform: translateY(-10px);
-            transition: .5s;
-            font-size: 15px;
-            color: rgba(100,100,100);
-        }
-
-        label.lab4{
-            position: absolute;
-            top: 33px;
-            left: 20px;
-            color: rgba(100,100,100);
-        }
-
-        .div-inputs .inputs:focus ~ .lab4,
-        .div-inputs .inputs:valid ~ .lab4{
-            transform: translateY(-10px);
-            transition: .5s;
-            font-size: 15px;
             color: rgba(100,100,100);
         }
 
         .div-inputs .inputs:focus,
         .div-inputs .inputs:valid{
-            color: #fff;
             border-bottom: 2px solid #e50914;
+            color: #fff;
         }
 
         .div-inputs{
@@ -169,7 +122,7 @@ include('../protect.php');
             margin: 5px 0;
         }
 
-        .inputs{  
+        .inputs{
             width: 100%;
             padding: 16px 20px 0;
             height: 60px;
@@ -202,6 +155,24 @@ include('../protect.php');
             background-color: #a50b13;
         }
 
+        .btn-inicial{
+            background: #e50914;
+            color: #ffff;
+            width: 100%;
+            height: 50px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 10px 0 10px 0;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-inicial:hover{
+            transition: .5s;
+            background-color: #a50b13;
+        }
+
         p{
             color: white;
             margin-top: 20px;
@@ -217,58 +188,71 @@ include('../protect.php');
             color: #333;
         }
 
-    </style>
+        .cadastro1{
+            background: rgba(0,0,0,0.75);
+            color: #038c04;
+            padding: 10px;
+            width: 95%;
+            border-radius: 4px;
+            text-align: center;
+        }
 
+        button:disabled{
+            opacity: .4;
+            cursor: default;   
+        }
+
+        label.tipo2{
+            color: #fff;
+        }
+
+        h3{
+            color: #fff;
+        }
+
+    </style>
 </head>
 
 <body>
 
-    <h1><a href="../../login/painel.php">BICTFLIX</a></h1>
-    
+    <h1><a href="../../../login/painel.php" class="logo">BICTFLIX</a></h1>
 
     <div class="div-main">
 
         <div class="div-form">
     
-            <form method="POST" action="../../cadastro.php">
-                <h2>Cadastro</h2>
-                
+            <form method="POST" action="cadastro_periodo.php">
+                <h2>Período</h2>
+                <?php if(isset($_GET['cadastro1'])){ ?>
+                    <p class="cadastro1"><?php echo $_GET['cadastro1']; ?></p>
+                <?php } ?>
             
                 <div class="div-inputs">
                    
                     <br />
-                    <input id="name" type="text" name="nome" class="inputs" required>
-                    <label for="Nome" class="lab1">Nome</label>
-                    <br />
-                </div>
+                    <input id="periodo" type="text" name="nome_tema" class="inputs" onchange="toggleButton()" required>
+                    <label class="lab1">Nome do Período</label>
+                    <br/><br/>
+                   
+                    <button id="cadastro" class="btn-cadastrar" disabled="">Cadastrar</button>
 
-                <div class="div-inputs">
-                    
-                    <br />
-                    <input id="email" type="email" name="email" class="inputs" required>
-                    <label for="" class="lab2">E-mail</label>
-                    <br />
-                </div>
-                <div class="div-inputs">
-                    <br />
-                    <input id="user" type="text" name="tipo_usuario" class="inputs" required>
-                    <label for="Tipo" class="lab3">Tipo do Usuário</label>
-                    <br />
-                </div>
-
-                <div class="div-inputs">
-                    <br />
-                    <input id="password" type="password" name="senha" class="inputs" required>
-                    <label for="" class="lab4">Senha</label>
                     <br /><br />
                 </div>
-
-                    <button class="btn-cadastrar">Cadastrar</button>
-
-                    <!--<p>Já tem uma conta? <a href="../login/index.php">Faça seu login</a></p>-->
             </form>
+            
         </div>
     </div>
+    <script type="text/javascript">
+        function toggleButton() {
+            const periodo = document.querySelector('#periodo').value;
+
+            if (periodo){
+                document.querySelector('#cadastro').disabled = false;
+                return
+            }
+            document.querySelector('#cadastro').disabled = true;
+        }
+    </script>
 </body>
 
 </html>

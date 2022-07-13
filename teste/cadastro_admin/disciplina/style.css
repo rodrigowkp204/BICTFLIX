@@ -80,7 +80,7 @@ h2{
 }
 label.lab1{
     position: absolute;
-    top: 38px;
+    top: 33px;
     left: 20px;
     color: rgba(100,100,100);
 }
@@ -186,4 +186,12 @@ p{
  a:hover{
   letter-spacing: 0.3px;
   color: #333;
+}
+.cadastro{
+    background: rgba(0,0,0,0.75);
+    color: #e27202;
+    padding: 10px;
+    width: 95%;
+    border-radius: 4px;
+    text-align: center;
 }

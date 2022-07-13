@@ -69,7 +69,7 @@ if(!isset($_SESSION['id_usuario'])) {
 			        </div>
 			        <br/><br/>
 			        <p class='logar'>
-						<button class='btn-acessar'><a href=\"index.php\">Entrar</a></button>
+						<button class='btn-acessar'><a href=\"..\..\..\login\index.php\">Entrar</a></button>
 					</p>
     			</div>
 			</body>
