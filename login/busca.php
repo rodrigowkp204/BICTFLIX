@@ -1,14 +1,11 @@
 <?php
 
-    include('protect.php');
-    //include('busca.php');
-    include_once("../conexao.php");
+include("../conexao.php");
 
-    $consulta = "SELECT * FROM disciplina";
-    $con = $conexao->query($consulta) or die ($mysqli->error);
-    
+	$pesquisa = $_GET['busca'];
+    $sql_code = "SELECT * FROM disciplina WHERE nome_disciplina LIKE '%pesquisa%'";
+	//$sql_query = $mysqli->query($sql_code) or die ("Erro ao consultar! " . $mysqli->error);
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -501,90 +498,7 @@
 </head>
     
 <body>
-    <header>
-        <a href="" class="logo"><img src="logo_bictflix.png" alt=""></a>
-        <!--NAVEGAÇÃO-->
-        <div class="per">
-            <ul class="navegation">
-                <li><a href="#banner">Inicio</a></li>
-                <li><a href="#contato">Contato</a></li>
-                <?php if($_SESSION['tipo_usuario'] == '1') { ?>
-                <li><a href="">Períodos</a>
-                    <ul>
-                        <li><a href="#first">
-                                <li><a href="../teste/cadastro_admin/periodo/periodo.php"><i class="fa fa-plus" aria-hidden="true"></i> Criar Período</a></li>
-                            <?php } ?>
-                        </a></li>
-                    </ul>
-                    <?php if($_SESSION['tipo_usuario'] == '1') { ?>
-                <li><a href="">Disciplina</a>
-                    <ul>
-                        <li><a href="#second">
-                                <li><a href="../teste/cadastro_admin/disciplina/disciplina.php"><i class="fa fa-plus" aria-hidden="true"></i> Criar Disciplina</a></li>
-                                <li><a href="../listar_disciplina.php">Apagar uma Disciplina
-                                </a></li>
-                            <?php } ?>
-                        </a></li>
-                    </ul>
-                </li>
-                <?php if($_SESSION['tipo_usuario'] == '1') { ?>
-                <li><a href="">Vídeo</a>
-                    <ul>
-                        <li><a href="#three">
-                                <li><a href="../teste/cadastro_admin/video/video.php"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Vídeo</a></li>
-                                <li><a href="../listar_video.php">Apagar um Video
-                                </a></li></a></li>
-                            <?php } ?>
-                        </a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <!--BUSCA-->
-        <div class="search">
-            <form action="busca.php">
-            <input name="busca" type="text" placeholder="Search">
-            <i class="fas fa-search"></i>
-            </form>
-        </div>
-        <!--USUARIO-->
-        <div class="user">
-            <ul>
-                <li><a><?php echo $_SESSION['nome']?></a></li>
-                <li><a><i class="fa fa-sort-desc" aria-hidden="true"></i></a>
-                    <ul>
-                        <?php if($_SESSION['tipo_usuario'] == '1') { ?>
-                        <li><a href="../teste/cadastro_admin/index.php"><i class="fa fa-plus" aria-hidden="true"></i> Criar um Admin</a></li>
-                        <li><a href="../edit.php?id=<?php echo $_SESSION['id_usuario']?>"><i class="fa-solid fa-pencil"></i> Perfil Admin</a></li>
-                        <?php } ?>
-                        <?php if($_SESSION['tipo_usuario'] == '0') { ?>
-                        <li><a href="../edit_2.php?id=<?php echo $_SESSION['id_usuario']?>"><i class="fa-solid fa-pencil"></i> Perfil</a></li>
-                        <?php } ?>
-                        <li><a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </header>
-
-    <!--SESSÃO INICIAL-->
-    <section class="banner" id="banner">
-        <!--DESCRIÇÃO-->
-        <div class="content">
-            <h2>BICT</h2>
-            <h4>
-                <span>2013</span>
-                <span>3 anos</span>
-                <span>Ciência e Tecnologia</span>
-            </h4>
-            <p>O curso tem como objetivos: Agregar uma formação geral, humanística e científica<br> com aprofundamento no campo das Ciências e das Tecnologias (incluindo disciplinas<br> como física, matemática, química, letras, administração e componentes das áreas<br> tecnológicas);Formar profissionais com sólidos fundamentos teóricos e práticos, e<br> com uma visão integrada dessas diferentes áreas do saber;Possibilitar ao aluno(a)<br> a aquisição de competências e habilidades específicas para o aprendizado no campo<br> da Engenharia.</p>
-            <!--<div class="buttons">
-                <a><i class="fa fa-play" aria-hidden="true"></i> Play</a>
-                <a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Watch Now</a>
-            </div>-->
-        </div>
-    </section>
-
+   
     <main>
         <!--PRIMEIRA SESSÃO-->
 
@@ -625,7 +539,7 @@
           <a href="mailto:meyson.ss@discente.ufma.br">meyson.ss@discente.ufma.br</a>
           <p> Jeanderson da Silva Campos<br>
           <a href="mailto:js.campos@discente.ufma.br">js.campos@discente.ufma.br</a>
-          <p> Lucas Amorim da Silva<br>
+          <p> Lucas Amorim<br>
           <a href="mailto:lucas.amorim@discente.ufma.br">lucas.amorim@discente.ufma.br</a></p>
           </div>
          </div>

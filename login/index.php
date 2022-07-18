@@ -2,6 +2,7 @@
 
 include('conexao2.php');
 
+
 if(isset($_POST['email']) || isset($_POST['senha'])){
 
     if(strlen($_POST['email']) == 0) {
@@ -14,8 +15,12 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
 
         $email = $mysqli->real_escape_string($_POST['email']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
+        
+        
 
         $sql_code = "SELECT * FROM  usuario WHERE email = '$email' AND senha = '$senha'";
+        $sql_code1 ="SELECT * FROM  disciplina";
+        $sql_query1 = $mysqli->query($sql_code1) or die ("Falha na execução do código SQL: " . $mysqli->error);
         $sql_query = $mysqli->query($sql_code) or die ("Falha na execução do código SQL: " . $mysqli->error);
 
         $quantidade = $sql_query->num_rows;
@@ -23,6 +28,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
         if($quantidade == 1){
 
             $usuario = $sql_query->fetch_assoc();
+            $disciplina = $sql_query1->fetch_assoc();
 
 
 
@@ -33,6 +39,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['tipo_usuario'] = $usuario['tipo_usuario'];
+            $_SESSION['id_disciplina'] = $disciplina['id_disciplina'];
 
             header("Location: painel.php");
 
